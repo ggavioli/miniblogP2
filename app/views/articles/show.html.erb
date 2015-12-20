@@ -1,0 +1,38 @@
+<h1><%= @article.title %></h1>
+<h1 class="page"><%= @article.id %></h1>
+<p><%= @article.content %></p><br />
+
+<%= form_tag "/articles/#{@article.id}", method: "patch" do %>
+   <label for="title">Votre titre</label> :<input type="text" name="title" id="title" value="<%= @article.title %>"/>
+<p>
+    <label for="content">Contenu</label> <br />
+    
+    <textarea  name="content" id="content" rows="5" cols="50" value="<%= @article.content %>" />Entrez un nouveau contenu</textarea>
+</p>
+ 
+  <button type="submit" class="btn btn-primary" value="Ajouter un article">Modifier l'article </button>
+<% end %>
+
+<%= form_tag "/articles/#{@article.id}", method: "delete" do %>
+  <button type="submit" class="btn btn-danger" value="Supprimer l'article">Supprimer l'article</button>
+<% end %>
+
+<h2>Vos commentaires</h2>
+<%= form_tag "/comments", method: "post" do %>
+  <input type="text" name="autors_name" placeholder="Votre nom"/>
+  <input type="text" name="content" placeholder="Votre commentaire"/>
+<input type="hidden" name="article_id" value= "<%= @article.id %>" />
+  <!--<select name="post_id">
+<% @articles.each do |article| %>
+<option value="<%= article.id %>"><%= article.title %>
+      </option>
+    <% end %>
+  </select> -->
+  <input type="submit" value="Valider" />
+<% end %>
+
+<p><% @article.comments.each do |comment| %>
+<p><%= comment.content %><br>Auteur: <%= comment.autors_name %></p>
+<% end %>
+</p>
+<p><a href="/articles">Retour à la liste</a></p>

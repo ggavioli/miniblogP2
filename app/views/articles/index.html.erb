@@ -1,0 +1,21 @@
+<h1 class="jumbotron">La liste des articles</h1>
+<div class="page"><%= paginate @articles %></div>
+
+  <% @articles.each do |article| %>
+    
+    
+        <li><a href="/articles/<%= article.id %>">
+            
+            <%= article.title %>
+            
+            </a></li>
+   
+  <% end %>
+   
+<%= form_tag "/articles", method: "post" do %>
+   <label for="title">Votre titre</label> :<input type="text" name="title" id="title" />
+ <label for="content">contenu</label> :<input type="text" name="content" id="content" />
+
+<!--<input type="text" name="comment_id" />-->
+  <button type="submit" class="btn btn-primary" value="Ajouter un article">Ajouter un article </button>
+<% end %>
