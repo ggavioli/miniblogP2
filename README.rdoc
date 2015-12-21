@@ -24,5 +24,21 @@ Things you may want to cover:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
+Environnement windows
+
+http://railsinstaller.org/fr-FR,
+Faire l’installation à la racine du C:\
+ Sous windows pour visualiser son site il faut:
+
+in your /app/views/layouts/application.html.erb line 5 and 6, change the first parameter <code>application</code> to <code>default</code>.
+gem install tzinfo-data
+ https://tzinfo.github.io
 <tt>rake doc:app</tt>.
+Configuration : $ rails version
+
+Rails 4.1.8
+ruby 2.1.5p273 (2014-11-13 revision 48405) [i386-mingw32]
+rake, version 10.4.2
+Bundler version 1.11.1
+
+
