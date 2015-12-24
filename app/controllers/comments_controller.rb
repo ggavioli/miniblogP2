@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     
     def show
         @comment = Comment.find(params[:id])
+    end
    
   def create
       Comment.create autors_name: params[:autors_name], content: params[:content], article_id: params[:article_id]
